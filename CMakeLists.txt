@@ -166,7 +166,7 @@ add_library(robust_hex_dominant_meshing_lib
   im_resources.cpp
 )
 
-add_executable(robust_hex_dominant_meshing MACOSX_BUNDLE
+add_executable(rhdm MACOSX_BUNDLE
   src/main.cpp
 )
 
