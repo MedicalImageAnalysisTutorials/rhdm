@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8.3)
-project(robust_hex_dominant_meshing)
+project(rhdm)
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to 'Release' as none was specified.")
