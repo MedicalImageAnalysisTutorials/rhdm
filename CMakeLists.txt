@@ -172,7 +172,7 @@ add_executable(robust_hex_dominant_meshing MACOSX_BUNDLE
 
 target_link_libraries(robust_hex_dominant_meshing robust_hex_dominant_meshing_lib tbb_static nanogui ${NANOGUI_EXTRA_LIBS} tet)
 
-set_target_properties(robust_hex_dominant_meshing PROPERTIES OUTPUT_NAME "robust_hex_dominant_meshing")
+set_target_properties(robust_hex_dominant_meshing PROPERTIES OUTPUT_NAME "rhdm")
 
 if (WIN32)
   # Quench some warnings on MSVC
@@ -181,7 +181,7 @@ if (WIN32)
   endif()
 elseif (APPLE)
   # Build an application bundle on OSX
-  set_target_properties(robust_hex_dominant_meshing PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "robust_hex_dominant_meshing")
+  set_target_properties(robust_hex_dominant_meshing PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "rhdm")
   set_target_properties(robust_hex_dominant_meshing PROPERTIES MACOSX_BUNDLE_BUNDLE_GUI_IDENTIFIER "com.im.robust_hex_dominant_meshing")
   set_target_properties(robust_hex_dominant_meshing PROPERTIES MACOSX_BUNDLE_ICON_FILE im.icns)
   set_target_properties(robust_hex_dominant_meshing PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/resources/MacOSXBundleInfo.plist.in)
@@ -193,5 +193,5 @@ else()
 endif()
 
 if (UNIX AND NOT ${U_CMAKE_BUILD_TYPE} MATCHES DEBUG)
-  add_custom_command(TARGET robust_hex_dominant_meshing POST_BUILD COMMAND strip $<TARGET_FILE:robust_hex_dominant_meshing>)
+  add_custom_command(TARGET robust_hex_dominant_meshing POST_BUILD COMMAND strip $<TARGET_FILE:rhdm>)
 endif()
