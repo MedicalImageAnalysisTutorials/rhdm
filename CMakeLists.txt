@@ -1,6 +1,11 @@
 cmake_minimum_required (VERSION 2.8.3)
 project(rhdm)
 
+mark_as_advanced( rhdm_RUNTIME_DIR )
+set( rhdm_RUNTIME_DIR "bin" CACHE STRING
+  "Directory for installing runtime files; path is relative to CMAKE_INSTALL_PREFIX" )
+
+
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to 'Release' as none was specified.")
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
@@ -195,3 +200,7 @@ endif()
 if (UNIX AND NOT ${U_CMAKE_BUILD_TYPE} MATCHES DEBUG)
   add_custom_command(TARGET robust_hex_dominant_meshing POST_BUILD COMMAND strip $<TARGET_FILE:rhdm>)
 endif()
+
+install( TARGETS rhdm
+  RUNTIME DESTINATION ${rhdm_RUNTIME_DIR}
+  COMPONENT RuntimeLibraries )
